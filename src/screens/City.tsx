@@ -9,7 +9,7 @@ const City = () => {
   return (
     <SafeAreaView style={styles.container}>
       <ImageBackground
-        source={require('../../assets/city.jpg')}
+        source={require('../../assets/cty.jpg')}
         style={styles.image}>
         <Text style={[styles.cityName, styles.cityText]}>London</Text>
         <Text style={[styles.countryName, styles.cityText]}>Uk</Text>
