@@ -1,27 +1,42 @@
 import React from 'react'
-
 import { SafeAreaView, Text, StyleSheet, ImageBackground, View} from 'react-native'
-import Icon from "react-native-vector-icons/Feather"
+import IconText from '../components/icons';
 
 
 
 const City = () => {
+
+  const {cityName, cityText, container, populationText, populationWrapper, image, riseSetText, countryName, riseSetWrapper, rowLayout} = styles;
+
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={container}>
       <ImageBackground
         source={require('../../assets/cty.jpg')}
-        style={styles.image}>
-        <Text style={[styles.cityName, styles.cityText]}>London</Text>
-        <Text style={[styles.countryName, styles.cityText]}>Uk</Text>
-        <View style={styles.populationWrapper}>
-          <Icon name="user" size={50} color={'red'} />
-          <Text style={styles.populationText}>8000</Text>
+        style={image}>
+        <Text style={[cityName, cityText]}>London</Text>
+        <Text style={[countryName, cityText]}>Uk</Text>
+        <View style={[populationWrapper, rowLayout]}>
+          <IconText
+            name="user"
+            color="red"
+            text="8000"
+            style={populationText}
+          />
         </View>
-        <View style={styles.riseSetWrapper}>
-          <Icon name="sunrise" size={50}/>
-          <Text style={styles.riseSetText}>09:12:59am</Text>
-          <Icon name="sunset" size={50} />
-          <Text style={styles.riseSetText}>06:43:23pm</Text>
+        <View style={[riseSetWrapper, rowLayout]}>
+          <IconText
+            name="sunrise"
+            color="white"
+            text="09:12:59am"
+            style={riseSetText}
+          />
+          <IconText
+            name="sunset"
+            color="white"
+            text="06:43:23pm"
+            style={riseSetText}
+          />
+
         </View>
       </ImageBackground>
     </SafeAreaView>
@@ -50,8 +65,6 @@ const styles = StyleSheet.create({
     color: 'white',
   },
   populationWrapper: {
-    flexDirection: 'row',
-    alignItems: 'center',
     justifyContent: 'center',
     marginTop: 30,
   },
@@ -64,8 +77,7 @@ const styles = StyleSheet.create({
   },
 
   riseSetWrapper: {
-    flexDirection: 'row',
-    alignItems: 'center',
+    
     justifyContent: 'space-around',
     marginTop: 30,
   },
@@ -73,6 +85,11 @@ const styles = StyleSheet.create({
     fontSize: 20,
     color: 'white',
     fontWeight: 'bold'
+  },
+
+  rowLayout: {
+    flexDirection: 'row',
+    alignItems: 'center',
   }
 
 });
